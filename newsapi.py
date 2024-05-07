@@ -22,11 +22,42 @@ response = requests.get(BASE_URL + endpoint, params=params)
 if response.status_code == 200:
     # Procesa la respuesta JSON
     data = response.json()
-    # Guardar las respuestas JSON en un archivo
-    with open('noticiasapi.json', 'w') as outfile:
-        json.dump(data, outfile)
-    print("Respuesta JSON guardada correctamente en noticiasapi.json")
-    # Imprimir el título de cada noticia
+    # Nombre del archivo CSV
+    csv_file = 'NOTICIASAPI.csv'
+    # Abre el archivo CSV en modo escritura
+    with open(csv_file, 'w', newline='', encoding='utf-8') as csvfile:
+        # Crea el objeto escritor CSV
+        writer = csv.writer(csvfile)
+        # Escribe el encabezado del archivo CSV
+        writer.writerow(['Título', 'Descripción', 'URL'])
+        # Escribe cada artículo en el archivo CSV
+        for article in data['articles']:
+            writer.writerow([article['title'], article['description'], article['url']])
+    print("Respuesta JSON guardada correctamente en NOTICIASAPI.csv")
+    # Imprime el título de cada noticia
+    for article in data['articles']:
+        print(article['title'])
+else:
+    print("Error al obtener las noticias:", response.status_code)# Realiza la solicitud HTTP
+response = requests.get(BASE_URL + endpoint, params=params)
+
+# Verifica si la solicitud fue exitosa
+if response.status_code == 200:
+    # Procesa la respuesta JSON
+    data = response.json()
+    # Nombre del archivo CSV
+    csv_file = 'NOTICIASAPI.csv'
+    # Abre el archivo CSV en modo escritura
+    with open(csv_file, 'w', newline='', encoding='utf-8') as csvfile:
+        # Crea el objeto escritor CSV
+        writer = csv.writer(csvfile)
+        # Escribe el encabezado del archivo CSV
+        writer.writerow(['Título', 'Descripción', 'URL'])
+        # Escribe cada artículo en el archivo CSV
+        for article in data['articles']:
+            writer.writerow([article['title'], article['description'], article['url']])
+    print("Respuesta JSON guardada correctamente en NOTICIASAPI.csv")
+    # Imprime el título de cada noticia
     for article in data['articles']:
         print(article['title'])
 else:
