@@ -46,7 +46,7 @@ def graficar_desglose_porcentaje_fake(porcentaje_neutral, porcentaje_positivo, p
         print("No se encontraron datos para graficar.")
 
 # Nombre del archivo CSV con las noticias de la BBC
-archivo_csv = 'noticias_covid_bbc.csv'
+archivo_csv = 'NOTICIASAPI.csv'
 
 # Obtener el porcentaje general de fake news en la página de la BBC
 porcentaje_neutral, porcentaje_positivo, porcentaje_negativo, porcentaje_fake = obtener_porcentaje_fake_general(archivo_csv)
