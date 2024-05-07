@@ -15,13 +15,17 @@ params = {
     'apiKey': API_KEY
 }
 
-# Solicitud HTTP
+# Realiza la solicitud HTTP
 response = requests.get(BASE_URL + endpoint, params=params)
 
-# Verificar si la solicitud fue exitosa
+# Verifica si la solicitud fue exitosa
 if response.status_code == 200:
-    # Procesar la respuesta JSON
+    # Procesa la respuesta JSON
     data = response.json()
+    # Guardar las respuestas JSON en un archivo
+    with open('noticiasapi.json', 'w') as outfile:
+        json.dump(data, outfile)
+    print("Respuesta JSON guardada correctamente en noticiasapi.json")
     # Imprimir el título de cada noticia
     for article in data['articles']:
         print(article['title'])
