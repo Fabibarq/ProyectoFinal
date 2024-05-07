@@ -1,3 +1,6 @@
+# Este archivo está desactivado y no debe ejecutarse.
+# Solo se proporciona como referencia.
+
 import requests
 from bs4 import BeautifulSoup
 import csv
