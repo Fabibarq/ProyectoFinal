@@ -7,8 +7,10 @@ WORKDIR /app
 # Copy all
 COPY . /ProyectoFinal
 
+COPY requirements.txt /ProyectoFinal
+
 # Dependencias
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Comando para ejecutar la aplicación cuando el contenedor se inicie
-CMD [ "python", "start" ]
+CMD [ "python", "deploy.py" ]
