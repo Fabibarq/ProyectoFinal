@@ -4,7 +4,7 @@ import subprocess
 
 # Comandos de despliegue de la aplicación Flask con Docker
 COMANDOS_DESPLIEGUE = [
-    'cd /ruta/a/tu/aplicacion',  # Navegar al directorio de la aplicación
+    'cd ProyectoFinal/Deploy.py',  # Navegar al directorio de la aplicación
     'git pull origin main',       # Actualizar el repositorio con los últimos cambios
     'docker-compose down',        # Detener los contenedores existentes
     'docker-compose up -d --build',  # Construir y levantar los contenedores
